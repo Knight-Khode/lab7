@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Measurement System</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+    <!--Navbar code-->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="./images/logo.png" alt="">
+        </a>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#intro">Introduction</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-btn">Circuit <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+              <div class="drop-flex">
+                <a href="#wheastone">Wheastone Bridge</a>
+                <a href="#diff">Difference Amplifier</a>
+                <a href="#buffer">Buffer</a>
+                <a href="#main">Physical circuit</a>
+              </div>  
+            </div>
+          </li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+        <div class="menu-icon">
+          <i class="fa fa-bars"></i>
+        </div>
+      </nav>
+      <div id="background">
+        <div class="overlay"></div>
+      </div>
+      <section id="intro" class="intro">
+        <div class="container">
+            <div class="intro-content">
+                <h3>Temperature measuring system using wheatstone bridge:</h3>
+                <p class="asdsad">The Wheatstone bridge is a circuit that consists of four resistors connected in a diamond configuration. It is used to measure electrical resistance accurately, and it has various applications, including temperature sensing, pressure sensing, and strain gauges. In temperature sensing applications, a sensor whose resistance changes with temperature is used as one of the bridge resistors. As the temperature changes, the resistance of the sensor changes, causing the bridge to become unbalanced. The voltage across the load is measured and used to calculate the resistance of the sensor, which can be used to determine the temperature. To build a temperature measuring system using a Wheatstone bridge, a temperature sensor is chosen and incorporated into the circuit along with three other resistors to form a balanced bridge. The voltage across the bridge is measured and used to calculate the resistance of the sensor, which can be used to determine the temperature. The system can display the temperature reading on a screen or transmit it wirelessly to another device. This approach offers high accuracy and stability, making it ideal for applications where precision is crucial.</p>
+                <div class="intro-img">   
+                    <img src="./images/into-img.png" alt="">
+                </div>
+                <p></p>
+            </div>
+        </div>
+      </section>
+      <section class="tools">
+        <div class="container">
+            <h3>Tools and Materials:</h3>
+            <div style="display: flex;">
+            <ul  style="margin-right: 90px;">
+                <li>
+                    <div>
+                        <img style="width:120px" src="./images/r10.png" alt="">
+                    </div>
+                    <p>4x-10k Resistors</p>
+                </li>
+                <li>
+                    <div>
+                        <img style="width:120px" src="./images/r1.png" alt="">
+                    </div>
+                    <p>2x-1k Resistors</p>
+                </li>
+                <li>
+                    <div>
+                        <img style="width:120px" src="./images/pot.jpg" alt="">
+                    </div>
+                    <p>10k-Potentiometer</p>
+                </li>
+                <li>
+                    <div>
+                        <img style="width:100px" src="./images/op.jpg" alt="">
+                    </div>
+                    <p>3x-UA741 Opamp</p>
+                </li>
+                
+            </ul>
+            <ul>
+              <li>
+                <img style="width:120px" src="./images/therm.jpg" alt="">
+                <p>1x NTC Thermistor</p>
+            </li>
+            <li>
+              <img style="width:80px" src="./images/analog.jpg" alt="">
+              <p>1x  Analog Discovery</p>
+          </li>
+          <li>
+            <img style="width:120px" src="./images/jump.jpg" alt="">
+            <p>Jumper Wires</p>
+        </li>
+        <li>
+          <img style="width:80px" src="./images/multi.jpg" alt="">
+          <p>1x Multimeter</p>
+      </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="wheastone" class="Wheastone-calc">
+       <div class="container">
+            <div class="wheastone-content">
+                <h3>Building Wheastone Bridge Circuit:</h3>
+                <p>In building the Wheastone bridge there was a need to measure the resistance of the sensor(Thermistor) at room(25&#8451) and body temperature(37&#8451).</p>
+                <br>    
+                <p><b>Thermistor resistance at room temperature:</b> </p>
+                <p><b>Thermistor resistance at body temperature:</b> </p>
+                <br>
+                <p>With these values recorded we can now adjust the resistance of our wheatsone bridge to get a balanced voltage.R1 and R2 are kept at fixed values of 10k&#8486.</p> 
+                <br>
+                <b>Calculating value of variable resistor:</b>
+                <div class="circ-calc">
+                    <div class="circ-img">
+                        <img style="width: 300px; display:block" src="./images/wheat1.PNG" alt="">
+                        <p class="fig" style="text-align:center;font-weight:bold">Figure 1: Wheastone Bridge with Unknown variable resisitor</p>
+                    </div>
+                    <div>
+                        <p>R2= 10k&#8486;</p>
+                        <p>R3= 10k&#8486;</p>
+                        <p>Rnom= 8.6k&#8486;</p>
+                        <p>R1= value of potentiometer</p>
+                        <p>At balanced point Vab=0</p>
+                        <p>R2Rnom=R1R3</p>
+                        <div>
+                          <p>$$R_1=\frac{R_2 \times R_{nom}}{R_3}$$</p>
+                        </div>
+                        <div>
+                          <p>$$R_1=\frac{10k&#8486 \times 8.6k&#8486}{10k&#8486}$$</p>
+                        </div>
+                        <div>
+                          <p>$$R_1=8.6k&#8486$$</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-bottom: 20px;">The value to be used for variable resistor is 8.6k&#8486. However it is extremely difficult to get a variable resistor with such resistance as such a 10k&#8486 resistor is used since it can easily  be adusted to 8.6k&#8486. The resulting wheastone bridge circuit is given as:</p>
+                <div class="wheatstone2">
+                  <div class="schematic">
+                    <img style="display: block;" src="./images/wheat2.jpeg" alt="">
+                    <p class="fig" style="text-align:center;font-weight:bold">Figure 2: Circuit simulated on proteus</p>
+                  </div>
+                  <div class="built">
+                    <img style="display: block;" src="./images/adjust.jpeg" alt="">
+                    <p class="fig" style="text-align:center; font-weight:bold">Figure 3: Physically built cicuit</p>
+                  </div>          
+                </div>
+            </div>
+            <p>At balanced point, the voltage at point a in <b>figure 1</b> with voltage source Vs=5v is 2.5V and voltage at point b in <b>figure 1</b> 2.48V i.e;</p>
+            <p><b>Va</b>= 2.5V</p>
+            <p><b>Vb</b>= 2.48V</p>
+            <p>&therefore; <b>Vab</b>= 2.5-2.48= 0.02V</p>
+            <br>
+            <br>
+            <h3 id="diff">Building Difference Amplifier Circuit:</h3>
+            <p>A difference amplifier, also known as differential amplifier, is an electronic circuit that amplifies the voltage difference between two input signals while rejecting any signals that are common to both inputs. It is commonly used in signal processing applications to measure the difference between two signals, such as in audio applications to remove common-mode noise or in instrumentation to amplify small differential signals for measurement purposes. The output of a difference amplifier is proportional to the voltage difference between the two input signals, multiplied by the gain of the amplifier. The gain can be adjusted by changing the values of the resistors in the circuit.</p>
+            <br>
+            <div style="display:flex; justify-content:center;">
+              <div>
+                <p style="text-align:center; margin-right:70px;"><b>Claculating gain of difference amplifier:</b></p>
+                <br>
+                <p>$$V_{out}=\frac{R_2}{R_1}\times(V_b-V_a)$$</p>
+                <p>$$2=\frac{R_2}{R_1}\times(2.5-2.7)$$</p>
+                <p>$$\frac{R_2}{R_1}=\frac{2}{(2.7-2.5)}$$</p>
+                <p>$$\frac{R_2}{R_1}=10$$</p>
+                <P style="text-align: center; margin-bottom:30px">&therefore; <b>Gain</b>= 10</P>
+              </div>
+              <div>
+                  <p style="text-align:center;"><b>Finding resistors for difference amplifier:</b></p>
+                <div style="display:flex;justify-content:center;">
+                  <img src="./images/opamp18.gif" alt="">
+                </div>
+                <p class="fig" style="text-align:center; font-weight:bold">Figure 4: Difference amplifier</p>
+                <br>
+                <p style="text-align:center;">Since gain = 10</p>
+                <p>$$10=\frac{R_3}{R_1}$$</p>
+                <p style="text-align:center">if R3=10k&#8486</p>
+                <p>$${R_1}=\frac{10K}{10}=1000&#8486$$</p>
+                <p>$${R_2}={R_1}=1k&#8486$$</p>
+                <p>$${R_3}={R_4}=10k&#8486$$</p>
+              </div>
+            </div>          
+            <br>
+            <br>
+            <br>
+            <h3>Circuit schematic:</h3>
+            <p>Based on the resistor values calculated  above we are able to come out with a schematic consisting of the wheastone bridge and the difference amplifier</p>
+            <br>
+            <br>
+            <div style="display: flex; justify-content:center;">
+              <img style="width:550px" src="./images/scheme1.jpeg" alt="">
+            </div>
+            <p class="fig" style="text-align:center; font-weight:bold">Figure 5: Combined wheastone bridge and difference amplifier circuit</p>
+            <br>
+            <br>
+            <h3 id="buffer">Circuit Flaws:</h3>
+            <p>The ciruit built as seen in figure was affected by <b>loading.</b> The loading effect occurs because the output impedance of the amplifier interacts with the load impedance, resulting in a voltage drop across the output impedance of the amplifier. This voltage drop can reduce the output voltage, increase distortion, and limit the amount of power that the amplifier can deliver to the load.To solve this we connected the outputs of the
+              wheastone bridge to buffers.A buffer circuit has a high input impedance and a low output impedance, which helps to minimize the loading effect. The high input impedance ensures that the buffer circuit does not draw any current from the previous stage, while the low output impedance ensures that the buffer circuit can drive the next stage with a low voltage drop. This ensures that the signal is not attenuated or distorted as it passes from one stage to the next.
+            </p>
+            <br>
+            <br>
+            <b>Interfacing difference amplifier with buffers:</b>
+            <br>
+            <br>
+            <div style="display: flex; justify-content:center;">
+              <img style="width:550px" src="./images/scheme2.jpeg" alt="">
+            </div>
+            <p class="fig" style="text-align:center; font-weight:bold">Figure 6: Circuit with Buffers intergerated</p>
+            <br>
+            <br>
+            <h3 id="main">Physically built circuit:</h3>
+            <p>Taking into account the flaws and degree to which proteus simulation worked, a physical circuit was then assembled and scoped to analyse the output using waveform.
+              Below is an image showing the physically built circuit:
+            </p>
+            <br>
+            <div style="display:flex; justify-content:center;">
+              <img style="width: 600px;" src="./images/Untitled (2).png" alt="">
+            </div>
+            <p class="fig" style="text-align:center; font-weight:bold">Figure 7: Physically built circuit</p>
+            <br>
+            <br>
+            <h3 id="results">Waveform and results:</h3>
+            <p>The system was tested by connecting the output of the difference amplifier to waveform. The thermistor is then touched and the variation is seen by viewing waveforms. The <b>expected</b> results was to get an amplified form of the input signal.
+            Since the gain of the difference amplifier was calculated to be <b>10</b>, we expect the output signl to be <b>10 times</b> the amplitude of the input signal.
+          Below shows a waveform afte the system was tested:</p>
+          <br>
+          <div style="display:flex; justify-content:center;">
+            <img style="width: 900px;" src="./images/waveform.jpeg" alt="">
+          </div>
+          <p class="fig" style="text-align:center; font-weight:bold">Figure 8: Analysis of circuit using waveforms</p>
+          <br>
+          <br>
+          <p>From Figure 8, the <b>blue</b> signal represents the <b>output</b> signal and it is represented by <b>C2(channel 2)</b> under measurements.
+          </p>
+          <p>The <b>yellow</b> signal represents the input signal which comes from the output of the wheastone bridge and it is represented by <b>C1 (channel 1) </b>under measurements.</p>
+          <p>The input channel1 records a maximum value or amplitude of <B>59.396mv</B> whiles the ouput channel2 gives an amplified output of <b>0.59623V</b>. By comparison; the amplification of the input signal stands at <b>10.03</b> which is very close to the expected (10)</p>
+          <br>
+          <h3>Conclusion:</h3>
+          <p>
+            Ultimately, we concentrated on the Wheatstone bridge circuit as a precise means of measuring electrical resistance. This circuit can be used in a variety of disciplines, including temperature sensing, pressure sensing, and strain gauges. A balanced bridge is produced by incorporating a temperature sensor into the bridge circuit along with three additional resistors, allowing accurate temperature determination. The temperature measuring system described in this study shows how the Wheatstone bridge circuit works in conjunction with a difference amplifier circuit. It utilizes a temperature sensor, resistors, a difference amplifier, and buffers.The voltage across the bridge is measured, allowing the resistance of the sensor to be calculated and consequently, the temperature to be determined. The system has exceptional precision and stability, making it an excellent choice for temperature measurement. It is critical to evaluate potential loading effects within the circuit. To counteract these effects, we connected the Wheatstone bridge outputs to buffers with high input impedance and low output impedance. This provides peak performance and precise measurements. We also demonstrate the integration of buffers, which provides a physical representation of the assembled system. To test the circuit, a waveform analysis is performed, and the expected result is an amplified form of the input signal. The step-by-step instructions, circuit schematics, and real-world examples offered equip readers with the information needed to design and analyze a temperature measurement system utilizing the Wheatstone bridge circuit.
+          </p>
+          <br>
+          <br>
+          <h3>Challenges Faced:</h3>
+          <div>
+            <i class="fa-sharp fa-light fa-circle-xmark"></i>
+            <p>Balancing the circuit was a challenge </p>
+          </div>
+          <div>
+            <i class="fa-sharp fa-light fa-xmark"></i>
+            <p>Lose jumper wire connections</p>
+          </div>
+          <div>
+            <i class="fa-sharp fa-light fa-xmark"></i>
+            <p>Loading effect upon adding the difference amplifier</p>
+          </div>
+          <br>
+          <br>
+          <h3 id="team">Team Members:</h3>
+          <div style="display: flex; justify-content:space-between; align-items:center">
+            <div>
+              <div>
+                <img style="width: 280px;" src="./images/jen.jpeg" alt="">
+              </div>
+                <p style="text-align: center; font-weight:bolder">Jennifer Narh</p>
+            </div>
+            <div>
+              <div>
+                <img style="width: 240px;" src="./images/moh.jpeg" alt="">
+              </div>
+                <p style="text-align: center; font-weight:bolder">Mohammed Elmir</p>
+            </div>
+            <div>
+              <div>
+                <img style="width: 280px;" src="./images/amanda.jpeg" alt="">
+              </div>
+                <p style="text-align: center; font-weight:bolder">Amanda Aninagyei</p>
+            </div>
+          </div>
+          <br>
+          <h3>References:</h3>
+          <p style="padding-bottom: 5px;">Admin. (2023). Wheatstone Bridge - Working Principle, Formula, Derivation, Application. BYJUS. https://byjus.com/physics/wheatstone-bridge/</p>
+          <p style="padding-bottom: 5px;">Loading effect. (2018). studylib.net. https://studylib.net/doc/18412915/loading-effect</p>
+          <p style="padding-bottom: 5px;">Storr, W. (2022). The Differential Amplifier. Basic Electronics Tutorials. https://www.electronics-tutorials.ws/opamp/opamp_5.html</p>
+          <p style="padding-bottom: 5px;">Storr, W. (2022b). Wheatstone Bridge. Basic Electronics Tutorials. https://www.electronics-tutorials.ws/blog/wheatstone-bridge.html</p>
+          <p style="padding-bottom: 5px;">Teja, R. (2021). Differential Amplifier. ElectronicsHub. https://www.electronicshub.org/differential-amplifier/</p>
+          
+          
+          
+        </div>
+       </div>
+       
+      </section>
+      <script src="https://kit.fontawesome.com/ea129587c4.js" crossorigin="anonymous"></script>
+      <script src="./func.js"></script>
+</body>
+</html>
